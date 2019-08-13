@@ -3,7 +3,8 @@ defmodule CloudServer.MixProject do
 
   @app :cloud_server
   @version "0.1.0"
-  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :x86_64]
+  @all_targets [:x86_64, :x86_64_gnu]
+  @target System.get_env("MIX_TARGET") || "host"
 
   def project do
     [
@@ -13,6 +14,9 @@ defmodule CloudServer.MixProject do
       archives: [nerves_bootstrap: "~> 1.6"],
       start_permanent: Mix.env() == :prod,
       build_embedded: true,
+      # deps_path: "deps/#{@target}",
+      # build_path: "_build/#{@target}",
+      # lockfile: "mix.lock.#{@target}",
       aliases: [loadconfig: [&bootstrap/1]],
       deps: deps(),
       releases: [{@app, release()}],
@@ -47,6 +51,7 @@ defmodule CloudServer.MixProject do
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.6", targets: @all_targets},
       {:nerves_init_gadget, "~> 0.4", targets: @all_targets},
+      # {:nerves_firmware_ssh, "~> 0.4", targets: @all_targets},
 
       # System
       {:nerves_tier, "~> 0.1.2", github: "elcritch/nerves_tier"},

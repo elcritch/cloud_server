@@ -33,7 +33,7 @@ node_name = if Mix.env() != :prod, do: "cloud_server"
 config :nerves_init_gadget,
   ifname: "eth0",
   address_method: :dhcp,
-  mdns_domain: "nerves.local",
+  mdns_domain: "cloud-server.local",
   node_name: node_name,
   node_host: :mdns_domain
 
