@@ -7,6 +7,22 @@ use Mix.Config
 
 config :cloud_server, target: Mix.target()
 
+# Configures the endpoint
+config :bulma_widgets_phx_test, BulmaWidgetsPhxTestWeb.Endpoint,
+  server: true,
+  url: [host: "localhost"],
+  secret_key_base: "mY5NRonaUXEQpTnHYZA4l8fggFt3QaWpABKsp7Bs3mBPUPAwsqDfkar3blneGC5f",
+  render_errors: [view: BulmaWidgetsPhxTestWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: BulmaWidgetsPhxTest.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [signing_salt: "gECXkLYQ"]
+
+# Configures Elixir's Logger
+config :logger, :console,
+  format: "$time $metadata[$level] $message\n",
+  metadata: [:request_id]
+
+config :phoenix, :json_library, Jason
+
 # Customize non-Elixir parts of the firmware. See
 # https://hexdocs.pm/nerves/advanced-configuration.html for details.
 

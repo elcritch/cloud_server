@@ -3,6 +3,17 @@ use Mix.Config
 # Authorize the device to receive firmware using your public key.
 # See https://hexdocs.pm/nerves_firmware_ssh/readme.html for more information
 # on configuring nerves_firmware_ssh.
+config :dosing_web_app, WebAppWeb.Endpoint,
+  server: true,
+  url: [host: "0.0.0.0"],
+  http: [:inet6, port: 80, protocol_options: [idle_timeout: :infinity]],
+  root: ".",
+  secret_key_base: "mY5NRonaUXEQpTnHYZA4l8fggFt3QaWpABKsp7Bs3mBPUPAwsqDfkar3blneGC5f",
+  live_view: [signing_salt: "gECXkLYQ"],
+  check_origin: false,
+  render_errors: [view: WebAppWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: WebApp.PubSub, adapter: Phoenix.PubSub.PG2]
+
 
 keys =
   [
