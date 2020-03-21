@@ -6,7 +6,7 @@ use Mix.Config
 
 config :bulma_widgets_phx_test, BulmaWidgetsPhxTestWeb.Endpoint,
   server: true,
-  url: [host: "45.63.37.162"],
+  url: [host: nil],
   http: [:inet6, port: 80, protocol_options: [idle_timeout: :infinity]],
   secret_key_base: "mY5NRonaUXEQpTnHYZA4l8fggFt3QaWpABKsp7Bs3mBPUPAwsqDfkar3blneGC5f",
   render_errors: [view: BulmaWidgetsPhxTestWeb.ErrorView, accepts: ~w(html json)],
