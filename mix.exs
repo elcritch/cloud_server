@@ -58,11 +58,7 @@ defmodule CloudServer.MixProject do
       {:bulma_widgets_phx_test, "~> 0.1", git: "git@github.com:elcritch/bulma_widgets_phx_test.git"},
 
       # Dependencies for specific targets
-      {:nerves_system_rpi3, "~> 1.8", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi4, "~> 1.8", runtime: false, targets: :rpi4},
-      {:nerves_system_bbb, "~> 2.3", runtime: false, targets: :bbb},
-      {:nerves_system_x86_64, "~> 1.8", runtime: false, targets: :x86_64},
-      # {:kiosk_system_x86_64, "~> 1.4", runtime: false, targets: :x86_64_kiosk},
+      # {:nerves_system_x86_64, "~> 1.8", runtime: false, targets: :x86_64},
       {:nerves_system_x86_64_gnu, "~> 1.8", github: "elcritch/nerves_system_x86_64", runtime: false, targets: :x86_64_gnu},
     ]
   end
